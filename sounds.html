@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <section class="soundboard">
+            <button class="sound-tile lion" data-sound=""></button>
+            <button class="sound-tile snake" data-sound="assets/snake.mp3"></button>
+            <button class="sound-tile monkey" id="monkey" data-sound="assets/monkey.mp3"></button>
+            <button class="sound-tile elephant" id="elephant" data-sound="assets/elephant.mp3"></button>
+            <button class="sound-tile dog" data-sound="dog.mp3"></button>
+            <button class="sound-tile cat" data-sound="cat.mp3"></button>
+        </section>
+    </main>
+</body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements with the class "sound-tile"
+    var soundTiles = document.querySelectorAll('.sound-tile');
+
+    // Add click event listener to each sound tile
+    soundTiles.forEach(function(tile) {
+        tile.addEventListener('click', function() {
+            // Get the sound file from the data-sound attribute
+            var soundFile = tile.getAttribute('data-sound');
+
+            // Check if a sound file is specified
+            if (soundFile) {
+                // Create an audio element
+                var audio = new Audio(soundFile);
+                audio.play(); // Play the audio
+            }
+        });
+    });
+});
+</script>
+
+
+</html>
